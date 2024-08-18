@@ -27,6 +27,7 @@ operations = {
 @app.route('/', methods=['GET', 'POST'])
 def calculator():
     result = None
+    num1, num2, operator = None, None, None  # Initialize variables
     if request.method == 'POST':
         try:
             num1 = float(request.form['num1'])
@@ -39,4 +40,4 @@ def calculator():
     return render_template('index.html', logo=logo, result=result, num1=num1, num2=num2, operator=operator)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
